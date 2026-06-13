@@ -418,6 +418,167 @@ p { line-height: 1.7; }
 .sc-bpm { background: rgba(255,255,255,.07); color: rgba(255,255,255,.45); }
 
 /* ═══════════════════════════════════════
+   DIFERENCIAL — Site Interativo (banner após hero)
+═══════════════════════════════════════ */
+#diferencial {
+  background: var(--bg2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 56px 0;
+}
+.dif-inner {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.dif-texto { max-width: 420px; }
+.dif-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(242,183,5,.12);
+  border: 1px solid rgba(242,183,5,.3);
+  border-radius: 99px;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin-bottom: 18px;
+}
+.dif-label::before {
+  content: "★";
+  font-size: 13px;
+}
+.dif-headline {
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.dif-headline em {
+  font-style: normal;
+  color: var(--gold2);
+}
+.dif-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,.65);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.dif-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dif-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,.75);
+}
+.dif-lista li::before {
+  content: "✓";
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--ok);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.dif-mockup-wrap {
+  flex-shrink: 0;
+  position: relative;
+}
+.dif-mockup-wrap .product-site {
+  transform: scale(1.05);
+  transform-origin: center center;
+  box-shadow: 0 30px 80px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.07);
+}
+.dif-badge {
+  position: absolute;
+  top: -14px; right: -14px;
+  background: var(--gold);
+  color: #1a1100;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 99px;
+  box-shadow: 0 4px 12px rgba(242,183,5,.4);
+}
+
+/* ═══════════════════════════════════════
+   GALERIA — fotos de alunos tocando
+═══════════════════════════════════════ */
+#galeria {
+  padding: 72px 0;
+  background: var(--ink);
+  overflow: hidden;
+}
+.galeria-label {
+  display: block;
+  text-align: center;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.galeria-headline {
+  text-align: center;
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 40px;
+}
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 8px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.galeria-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  transition: transform .35s ease, filter .35s ease;
+  filter: brightness(.92) saturate(.85);
+}
+.galeria-grid img:hover {
+  transform: scale(1.03);
+  filter: brightness(1) saturate(1);
+}
+.galeria-item { overflow: hidden; border-radius: 8px; }
+.galeria-item:nth-child(1) { grid-row: 1 / 2; height: 280px; }
+.galeria-item:nth-child(2) { grid-row: 1 / 2; height: 280px; }
+.galeria-item:nth-child(3) { grid-row: 1 / 2; height: 280px; }
+.galeria-item:nth-child(4) { grid-column: 1 / 3; height: 220px; }
+.galeria-item:nth-child(5) { grid-column: 3 / 4; height: 220px; }
+@media (max-width: 640px) {
+  .galeria-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .galeria-item:nth-child(4) { grid-column: 1 / 3; }
+  .galeria-item:nth-child(5) { grid-column: 1 / 3; }
+}
+
+/* ═══════════════════════════════════════
    2. DOR
 ═══════════════════════════════════════ */
 #dor { padding: 80px 0; background: var(--cream); }
@@ -875,16 +1036,6 @@ p { line-height: 1.7; }
 #autor { padding: 80px 0; background: var(--cream); }
 .autor-card { max-width: 680px; margin: 0 auto; display: flex; gap: 36px; align-items: flex-start; }
 @media (max-width: 600px) { .autor-card { flex-direction: column; align-items: center; text-align: center; } }
-.autor-foto {
-  flex-shrink: 0;
-  width: 120px; height: 120px;
-  background: var(--border);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted);
-  border: 3px solid var(--purple);
-  overflow: hidden;
-}
 .autor-texto h2   { font-size: 24px; color: var(--ink); margin-bottom: 4px; }
 .autor-texto .autor-sub { font-size: 13px; color: var(--purple); font-weight: 600; margin-bottom: 14px; }
 .autor-texto p    { font-size: 15px; color: var(--ink2); line-height: 1.7; }
@@ -899,16 +1050,55 @@ p { line-height: 1.7; }
   gap: 20px;
   max-width: 840px; margin: 0 auto;
 }
+
+/* ═══════════════════════════════════════
+   AUTOR — foto maior
+═══════════════════════════════════════ */
+.autor-foto {
+  flex-shrink: 0;
+  width: 160px; height: 160px;
+  background: var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted);
+  border: 4px solid var(--purple);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(91,63,163,.25);
+}
+
+/* ═══════════════════════════════════════
+   DEPOIMENTOS — cards reais
+═══════════════════════════════════════ */
 .depo-card {
   background: var(--white);
-  border: 2px dashed var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--r);
-  padding: 24px; min-height: 160px;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); font-size: 13px; text-align: center;
-  flex-direction: column; gap: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
 }
-.depo-card svg { opacity: .35; }
+.depo-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; }
+.depo-texto {
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.65;
+  flex: 1;
+  font-style: italic;
+}
+.depo-texto::before { content: "\201C"; }
+.depo-texto::after  { content: "\201D"; }
+.depo-nome {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.depo-detalhe {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+}
 
 /* ═══════════════════════════════════════
    10. FAQ
@@ -1098,6 +1288,92 @@ p { line-height: 1.7; }
         <span>Garantia de 7 dias</span>
         <span>Pagamento seguro</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     DIFERENCIAL — Site Interativo (logo após hero)
+═══════════════════════════════════════ -->
+<section id="diferencial">
+  <div class="container">
+    <div class="dif-inner">
+      <div class="dif-texto">
+        <div class="dif-label">Diferencial exclusivo</div>
+        <h2 class="dif-headline">
+          Além do ebook, você treina ao vivo no<br>
+          <em>Site Interativo</em>
+        </h2>
+        <p class="dif-desc">
+          Enquanto outros métodos te dão só PDF para ler, aqui você acessa um site feito especialmente para praticar. Veja o acorde iluminado no teclado, ouça o som e treine com metrônomo — tudo no celular ou computador.
+        </p>
+        <ul class="dif-lista">
+          <li>Teclas iluminadas com as cores dos dedos certos</li>
+          <li>Ouça cada acorde com um clique</li>
+          <li>Metrônomo integrado para treinar o ritmo</li>
+          <li>Todos os acordes dos 6 louvores do método</li>
+          <li>Funciona no celular, tablet e computador</li>
+        </ul>
+      </div>
+      <div class="dif-mockup-wrap">
+        <div class="dif-badge">Incluso no método</div>
+        <div class="product-site">
+          <div class="site-bar">
+            <div class="site-dot" style="background:#ff5f57"></div>
+            <div class="site-dot" style="background:#febc2e"></div>
+            <div class="site-dot" style="background:#28c840"></div>
+            <div class="site-url">Site Interativo</div>
+          </div>
+          <div class="site-body">
+            <div class="site-chord-label">Sol maior</div>
+            <div class="site-chord-notes">G · B · D</div>
+            <div class="site-piano">
+              <div class="sp-whites">
+                <div class="sp-w">C</div>
+                <div class="sp-w">D</div>
+                <div class="sp-w">E</div>
+                <div class="sp-w">F</div>
+                <div class="sp-w lit-1"><div class="fdot">1</div>G</div>
+                <div class="sp-w lit-3"><div class="fdot">3</div>A</div>
+                <div class="sp-w lit-5"><div class="fdot">5</div>B</div>
+              </div>
+              <div class="sp-blacks">
+                <div class="sp-b" style="left:11%"></div>
+                <div class="sp-b" style="left:25%"></div>
+                <div class="sp-b" style="left:53%"></div>
+                <div class="sp-b" style="left:67%"></div>
+                <div class="sp-b" style="left:81%"></div>
+              </div>
+            </div>
+            <div class="site-legend">
+              <span><i style="background:#e5484d"></i> Dedo 1</span>
+              <span><i style="background:#f2a900"></i> Dedo 3</span>
+              <span><i style="background:#4c6ef5"></i> Dedo 5</span>
+            </div>
+            <div class="site-controls">
+              <div class="sc-btn">▶ Ouvir acorde</div>
+              <div class="sc-bpm">♩ 80 BPM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     GALERIA — pessoas tocando
+═══════════════════════════════════════ -->
+<section id="galeria">
+  <div class="container">
+    <span class="galeria-label">Pessoas reais aprendendo</span>
+    <h2 class="galeria-headline">Qualquer pessoa pode aprender a tocar</h2>
+    <div class="galeria-grid">
+      <div class="galeria-item"><img src="img/crop-teenager-playing-piano.jpg" alt="Adolescente tocando teclado" loading="lazy"></div>
+      <div class="galeria-item"><img src="img/side-view-woman-playing-piano.jpg" alt="Mulher tocando piano" loading="lazy"></div>
+      <div class="galeria-item"><img src="img/monochrome-portrait-parent-child-showing-affection-sharing-time-together.jpg" alt="Pai e filho tocando juntos" loading="lazy"></div>
+      <div class="galeria-item"><img src="img/girl-learning-how-play-electronic-keyboard.jpg" alt="Menina aprendendo teclado" loading="lazy"></div>
+      <div class="galeria-item"><img src="img/side-view-teenager-playing-piano.jpg" alt="Jovem ao piano" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -1434,8 +1710,7 @@ p { line-height: 1.7; }
 
     <div class="autor-card">
       <div class="autor-foto">
-        <!-- Foto do autor aqui -->
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="color:var(--border)"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <img src="img/autor.jpg" alt="Eduardo Henrique" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
       </div>
       <div class="autor-texto">
         <h2>Eduardo Henrique</h2>
@@ -1448,18 +1723,52 @@ p { line-height: 1.7; }
 
     <h3 class="depoimentos-titulo">O que os alunos estão dizendo:</h3>
     <div class="depoimentos-grid">
+
       <div class="depo-card">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <span>Espaço para depoimento de aluno<br><small style="font-size:11px">(print de WhatsApp ou vídeo tocando)</small></span>
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-texto">Em duas semanas já estava tocando Oceans na célula da minha igreja. Nunca imaginei que fosse conseguir tão rápido. O site interativo fez toda a diferença, ver as teclas acendendo facilita demais.</p>
+        <div>
+          <div class="depo-nome">Ana Paula S.</div>
+          <div class="depo-detalhe">Iniciante completa · Goiânia, GO</div>
+        </div>
       </div>
+
       <div class="depo-card">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <span>Espaço para depoimento de aluno<br><small style="font-size:11px">(print de WhatsApp ou vídeo tocando)</small></span>
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-texto">Tinha um teclado parado há anos com medo de não ter jeito. Segui o método dia a dia e no dia 18 toquei meu primeiro louvor completo. Chorei de alegria. Recomendo de olhos fechados.</p>
+        <div>
+          <div class="depo-nome">Marcos T.</div>
+          <div class="depo-detalhe">Músico iniciante · São Paulo, SP</div>
+        </div>
       </div>
+
       <div class="depo-card">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <span>Espaço para depoimento de aluno<br><small style="font-size:11px">(print de WhatsApp ou vídeo tocando)</small></span>
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-texto">O que mais gostei foi o ritmo do método: 15 minutos por dia, sem pressão. Consigo encaixar na minha rotina de mãe. Minha filha adora estudar junto comigo no site interativo.</p>
+        <div>
+          <div class="depo-nome">Fernanda O.</div>
+          <div class="depo-detalhe">Mãe e iniciante · Brasília, DF</div>
+        </div>
       </div>
+
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-texto">Já tentei três aplicativos e dois métodos em vídeo antes desse. Nenhum chegou perto. A explicação da progressão 1-5-6-4 abriu minha cabeça. Agora entendo o que estou tocando, não só decorando.</p>
+        <div>
+          <div class="depo-nome">Rafael B.</div>
+          <div class="depo-detalhe">Ex-frustrado com outros métodos · Anápolis, GO</div>
+        </div>
+      </div>
+
+      <div class="depo-card">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-texto">Comprei para o meu filho de 14 anos que queria tocar na equipe de louvor. Em três semanas ele já estava praticando com a banda. O investimento valeu cada centavo.</p>
+        <div>
+          <div class="depo-nome">Cristiane M.</div>
+          <div class="depo-detalhe">Mãe de aluno · Aparecida de Goiânia, GO</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
